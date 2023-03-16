@@ -1,0 +1,71 @@
+  <div class="firstContainer">
+    <form>
+<hr>
+      <label class="lbl1">Loan Amount is (P) </label>
+      <input type="text"   [value]="p" class="input1"> <br><br>
+      <input type="range" (change)="amountchange($event)" min="100000" max="5000000" class="range1"><br><br><hr>
+
+
+      <label class="lbl2">No. of Month is(N)</label>
+      <input type="text"  [value]="n" class="input2"><br><br>
+      <input type="range" (change)="monthchange($event)" min="120" max="360" class="range2"><br><br><hr>
+
+
+      <label class="lbl3">Rate of intrest(R)</label>
+      <input type="text"  [value]="r" class="input3"><br><br>
+      <input type="range"  (change)="ratechange($event)" value="10" min="8.0" step="0.1" max="16.0" class="range3"><br><br><hr>
+
+
+      <button type="button" class="btnn" (click)="calculate()" >Calculate</button><br><br> <hr>
+
+    </form>
+</div>
+
+
+
+
+<div class="secondContainer"><hr>
+
+    <p>Monthly EMI:<br><b>{{emi | currency:"INR"}}</b></p><hr>
+
+    <p>Total Interest: <br> <b> {{totalinterest | currency:"INR"}}</b></p><hr>
+
+    <p>Payable Amount: <br> <b> {{totalpayment | currency:"INR"}}</b></p><hr>
+
+    <p>Interest Percentage: <br> <b>{{percentage  | currency:"INR"}}%</b></p><hr>
+
+
+</div>
+<br>
+
+
+     
+<div class="tablle">
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Payment No.</th>
+        <th>Begining balance</th>
+        <th>Emi</th>
+        <th>Principal</th>
+        <th>Intrest</th>
+        <th>Ending Balance</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of payments">
+        <td>{{item.paymentNo}}</td>
+        <td>{{item.beginningBalance}}</td>
+        <td>{{item.emi}}</td>
+        <td>{{item.principal}}</td>
+        <td>{{item.interest}}</td>
+        <td>{{item.endingBalance}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+   
+
+  
+

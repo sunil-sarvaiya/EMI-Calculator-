@@ -1,0 +1,26 @@
+<div class="mainContainer">
+
+<form [formGroup]="form" (ngSubmit)="submit()">
+
+<h3>Get In Touch</h3>
+
+<input type="text" placeholder="name" class="input" formControlName="name">
+<span *ngIf="name && name.invalid && name.touched">msg</span>
+
+<input type="email" placeholder="email" class="input"  formControlName="email">
+<span *ngIf="email && email.invalid && email.touched">msg</span>
+
+
+<input type="number" placeholder="phone" class="input"  formControlName="phone">
+<span *ngIf="phone && phone.invalid && phone.touched">msg</span>
+
+
+<textarea name="" id="" cols="0" rows="1" placeholder="message" class="input"  formControlName="message"></textarea>
+
+
+<button [disabled]="form.invalid">Log in</button>
+
+
+</form>
+
+</div>
